@@ -1,0 +1,34 @@
+{
+  "name": "node-openload",
+  "version": "1.0.0",
+  "description": "An openload.co API handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saschazar21/node-openload.git"
+  },
+  "keywords": [
+    "openload",
+    "api",
+    "file",
+    "upload",
+    "request"
+  ],
+  "author": "Sascha Zarhuber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saschazar21/node-openload/issues"
+  },
+  "homepage": "https://github.com/saschazar21/node-openload#readme",
+  "dependencies": {
+    "hasha": "^2.2.0",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0"
+  }
+}
