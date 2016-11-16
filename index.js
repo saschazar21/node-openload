@@ -3,4 +3,4 @@
   */
 const openload = require('./lib/api');
 
-module.exports = (config) => openload(config);
+module.exports = config => openload(config);
