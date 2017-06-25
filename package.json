@@ -4,7 +4,7 @@
   "description": "An openload.co API handler",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "mocha ./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -24,16 +24,19 @@
   },
   "homepage": "https://github.com/saschazar21/node-openload#readme",
   "dependencies": {
-    "hasha": "^2.2.0",
-    "request": "^2.78.0",
-    "request-promise": "^4.1.1"
+    "debug": "^2.6.8",
+    "form-data": "^2.2.0",
+    "got": "^7.0.0",
+    "hasha": "^3.0.0"
   },
   "devDependencies": {
+    "chai": "^4.0.2",
     "dotenv": "^2.0.0",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1"
+    "eslint-plugin-react": "^6.7.1",
+    "mocha": "^3.4.2"
   }
 }
