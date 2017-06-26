@@ -139,6 +139,8 @@ describe('node-openload', () => {
     })
     .then(buffer => openload.upload({
       file: buffer,
+      contentType: 'image/jpeg',
+      filename: 'adler-2386314_960_720.jpg',
     }))
     .then((res) => {
       debug(res);
