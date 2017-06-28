@@ -149,6 +149,10 @@ Please fork this repository, open a pull request and drop me a line on [twitter]
 * **@dasilvacontin** for [mocha](https://github.com/mochajs/mocha)
 * **@chaijs** for [chai](https://github.com/chaijs/chai)
 
+## Disclaimer
+I am not affiliated with [Openload](https://openload.co/) and/or its owners in any way. This source code is the result of my very own interests and is either written by me and/or any contributor listed in the [contributors section](https://github.com/saschazar21/node-openload/graphs/contributors). Therefore I am not liable for any content users of this source code are processing in any way.  
+If you feel there is something wrong with this repository or the source code it contains, please open up a new [issue](https://github.com/saschazar21/node-openload/issues).
+
 ## License
 MIT
 
