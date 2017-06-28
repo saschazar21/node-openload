@@ -1,8 +1,15 @@
 # node-openload
-An [Openload](https://openload.co) API wrapper for Node.JS using Promises.
+An [Openload](https://openload.co) API wrapper for Node.JS using Promises. Now in `v2.0.0`.
+
+* Author: [Sascha Zarhuber](https://sascha.work)
+* GitHub: [@saschazar21](https://github.com/saschazar21)
+* Twitter: [@saschazar](https://twitter.com/saschazar)
+* Source: [https://github.com/saschazar21/node-openload](https://github.com/saschazar21/node-openload)
+* Issues: [https://github.com/saschazar21/node-openload/issues](https://github.com/saschazar21/node-openload/issues)
+* Releases: [https://github.com/saschazar21/node-openload/releases](https://github.com/saschazar21/node-openload/releases)
 
 ## Prerequisites
-* [Node.JS](https://nodejs.org) v4 (minimum)
+* [Node.JS](https://nodejs.org) v6 and above
 * [Openload](https://openload.co) API key (available after registration)
 
 ## Install
@@ -19,7 +26,8 @@ const ol = openload({
 ```
 
 ### Functions
-Below the available functions are listed. The structure of the returned object may be looked up at the [API documentation](https://openload.co/api).
+Below the available functions are listed. The structure of the returned object may be looked up at the [API documentation](https://openload.co/api).  
+By default, this module returns only the `result` property from the API response.
 
 Sample function call:
 ```js
@@ -33,7 +41,7 @@ Returns information about your account.
 #### getDownloadTicket(file)
 Returns a download ticket, needed for actually downloading desired file afterwards.
 
-**file**: The ID of your requested file.
+`file`: The ID of your requested file.
 
 **Caution:**  
 * Sometimes the response also returns a `captcha_url` property holding an image link in the result.  
@@ -42,7 +50,7 @@ Returns a download ticket, needed for actually downloading desired file afterwar
 #### getDownloadLink(obj)
 Returns a download link for the requested file.
 
-**obj**: Object containing data for the download:
+`obj`: Object containing data for the download:
 ```
 {
   file:             // mandatory
@@ -50,9 +58,9 @@ Returns a download link for the requested file.
   captcha_response:
 }
 ```
-* **file**: The ID of your requested file.
-* **ticket**: The previously generated ticket.
-* **captcha_response**: The response to the retrieved captcha image (only if there was a `captcha_url` returned with the download ticket).
+* `obj.file`: The ID of your requested file.
+* `obj.ticket`: The previously generated ticket.
+* `captcha_response`: The response to the retrieved captcha image (only if there was a `captcha_url` returned with the download ticket).
 
 #### getDownload(file)
 Combines **getDownloadTicket(file)** and **getDownloadLink(obj)**.  
@@ -61,12 +69,17 @@ Either returns download link, or, if Captcha is necessary, returns response of *
 #### getFileInfo(file)
 Returns info about given file id.
 
-**file**: might consist of an Array or a string of comma-seperated file IDs. Max 50 IDs allowed.
+`file`: might consist of an Array or a string of comma-seperated file IDs. Max 50 IDs allowed.
+
+#### deleteFile(file)
+Deletes files based on given file id.
+
+`file`: might consist of an Array or a string of comma-seperated file IDs. Max 50 IDs allowed.
 
 #### listFolder(folder)
 List contents (folders, files) of given folder id.
 
-**folder**: The folder ID you want the contents listed of. *(not required)*
+`folder`: The folder ID you want the contents listed of. *(not required)*
 
 #### getFolder(folder)
 Duplicate of **listFolder(folder)**.
@@ -74,7 +87,7 @@ Duplicate of **listFolder(folder)**.
 #### remoteUpload(obj)  
 Upload a file from a remote URL.
 
-**obj**: Object containing data for the upload:
+`obj`: Object containing data for the upload:
 ```
 {
   url:             // mandatory
@@ -82,50 +95,67 @@ Upload a file from a remote URL.
   headers:
 }
 ```
-* **url**: The URL to the resource you want to upload.
-* **folder**: The folder ID you would like to upload to. *(not required)*
-* **headers**: If the desired resource needs special HTTP headers, please look up the [API documentation](https://openload.co/api).
+* `obj.url`: The URL to the resource you want to upload.
+* `obj.folder`: The folder ID you would like to upload to. *(not required)*
+* `obj.headers`: If the desired resource needs special HTTP headers, please look up the [API documentation](https://openload.co/api).
 
 #### remoteUploadStatus(obj)
 Check the upload status of a previously initiated remote upload.
 
-**obj**: Object containing data for the upload:
+`obj`: Object containing data for the upload:
 ```
 {
   id:
   limit:
 }
 ```
-* **id**: The remote upload ID. *(not required)*
-* **limit**: Limit results (Default 5, Max. 100). *(not required)*
+* `obj.id`: The remote upload ID. *(not required)*
+* `obj.limit`: Limit results (Default 5, Max. 100). *(not required)*
 
 #### upload(obj)
 Perform an upload of a local file.
 
-**obj**: Object containing data for the upload:
+`obj`: Object containing data for the upload:
 ```
 {
   file:             // mandatory
   folder:
+  filename:
+  contentType
 }
 ```
-* **file**: The local path of your desired file.
-* **folder**: The folder ID you want to upload to. *(not required)*
+* `obj.file`: A buffer or the local path of your desired file.
+* `obj.folder`: The folder ID you want to upload to. *(not required)*
+* `obj.filename`: The file's name. *(only required if using a buffer)*
+* `obj.contentType`: The file's content type. *(only required if using a buffer)*
 
 
 ### Errors
 
-All provided functions return a Promise.  
-Every error object is formed like this:
-```
-{
-  data:
-  error:
-}
-```
+All provided functions return a Promise. If an error occurs, the module rejects the Promise using an `Error` object containing short informational message.
 
-* **data**: contains failed parameter, or 'config' if request wasn't executed due to lack of information.  
-* **error**: holds returned response body, or error message as a string.
+
+## Issues
+Please report any bugs or issues to the [issues](https://github.com/saschazar21/node-openload/issues) section.
+
+## Contribution
+Contributors welcome!  
+Please fork this repository, open a pull request and drop me a line on [twitter](https://twitter.com/saschazar/).
+
+## Credits
+* **@sindresorhus** for [got](https://github.com/sindresorhus/got) and [hasha](https://github.com/sindresorhus/hasha)
+* **@alexindigo** for [form-data](https://github.com/form-data/form-data)
+* **@tootallnate** for [debug](https://github.com/visionmedia/debug)
+* **@dasilvacontin** for [mocha](https://github.com/mochajs/mocha)
+* **@chaijs** for [chai](https://github.com/chaijs/chai)
+
+## License
+MIT
+
+## Milestones
+* Add missing API endpoints (*Convert a file, Show running converts, Show failed converts, Get splash image*)
+* Find a better way to handle captcha responses
 
 ## Version history
+* **2.0.0** - Refactored `v1.0.0`, now also supporting buffers as upload content type. Added `deleteFile()`. Dropped [request](https://www.npmjs.com/package/request) in favor of [got](https://github.com/sindresorhus/got). Added tests using [mocha](http://mochajs.org/).
 * **1.0.0** - Initial version
