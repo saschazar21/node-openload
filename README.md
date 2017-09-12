@@ -129,6 +129,10 @@ Perform an upload of a local file.
 * `obj.filename`: The file's name. *(only required if using a buffer)*
 * `obj.contentType`: The file's content type. *(only required if using a buffer)*
 
+#### getSplashImage(file)
+Get thumbnail of file
+
+`file` File ID for thumbnail: 
 
 ### Errors
 
