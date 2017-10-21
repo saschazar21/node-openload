@@ -146,6 +146,9 @@ Please report any bugs or issues to the [issues](https://github.com/saschazar21/
 Contributors welcome!  
 Please fork this repository, open a pull request and drop me a line on [twitter](https://twitter.com/saschazar/).
 
+### Contributions to this project
+* **@Stradi** added `getSplashImage()`. This was released in **v2.1.0**.
+
 ## Credits
 * **@sindresorhus** for [got](https://github.com/sindresorhus/got) and [hasha](https://github.com/sindresorhus/hasha)
 * **@alexindigo** for [form-data](https://github.com/form-data/form-data)
@@ -165,5 +168,6 @@ MIT
 * Find a better way to handle captcha responses
 
 ## Version history
+* **2.1.0** - @Stradi added [getSplashImage()](https://openload.co/api#file-splash).
 * **2.0.0** - Refactored `v1.0.0`, now also supporting buffers as upload content type. Added `deleteFile()`. Dropped [request](https://www.npmjs.com/package/request) in favor of [got](https://github.com/sindresorhus/got). Added tests using [mocha](http://mochajs.org/).
 * **1.0.0** - Initial version
