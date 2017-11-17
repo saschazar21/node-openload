@@ -26,7 +26,7 @@
   "dependencies": {
     "debug": "^2.6.8",
     "form-data": "^2.2.0",
-    "got": "^7.0.0",
+    "got": "^8.0.0",
     "hasha": "^3.0.0"
   },
   "devDependencies": {
