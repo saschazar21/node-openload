@@ -148,6 +148,7 @@ Please fork this repository, open a pull request and drop me a line on [twitter]
 
 ### Contributions to this project
 * **@Stradi** added `getSplashImage()`. This was released in **v2.1.0**.
+* **@SrPatinhas** suggested to update [got](https://github.com/sindresorhus/got) due to incompatibilities when using `node-openload` with Electron. This was released in **v2.1.1**.
 
 ## Credits
 * **@sindresorhus** for [got](https://github.com/sindresorhus/got) and [hasha](https://github.com/sindresorhus/hasha)
@@ -168,6 +169,7 @@ MIT
 * Find a better way to handle captcha responses
 
 ## Version history
+* **2.1.1** - Released a hotfix with updated dependencies due to incompatibilities when using `node-openload` with Electron. Credits: @SrPatinhas.
 * **2.1.0** - @Stradi added [getSplashImage()](https://openload.co/api#file-splash).
 * **2.0.0** - Refactored `v1.0.0`, now also supporting buffers as upload content type. Added `deleteFile()`. Dropped [request](https://www.npmjs.com/package/request) in favor of [got](https://github.com/sindresorhus/got). Added tests using [mocha](http://mochajs.org/).
 * **1.0.0** - Initial version
