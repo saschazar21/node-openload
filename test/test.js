@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 const debug = require('debug')('node-openload-test');
 const got = require('got');
 const path = require('path');
-const should = require('chai').should();
+const { expect } = require('chai');
 
 const ol = require('../index');
 
@@ -134,7 +134,7 @@ describe('node-openload', () => {
     .then((body) => {
       body.should.have.property('byteLength');
       const isBuffer = Buffer.isBuffer(body);
-      isBuffer.should.be.true;
+      expect(isBuffer).to.equal(true);
       return body;
     })
     .then(buffer => openload.upload({
