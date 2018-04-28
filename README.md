@@ -1,5 +1,5 @@
 # node-openload
-An [Openload](https://openload.co) API wrapper for Node.JS using Promises. Now in `v2.0.0`.
+An [Openload](https://openload.co) API wrapper for Node.JS using Promises.
 
 * Author: [Sascha Zarhuber](https://sascha.work)
 * GitHub: [@saschazar21](https://github.com/saschazar21)
@@ -112,7 +112,7 @@ Check the upload status of a previously initiated remote upload.
 * `obj.id`: The remote upload ID. *(not required)*
 * `obj.limit`: Limit results (Default 5, Max. 100). *(not required)*
 
-#### upload(obj)
+#### upload(obj, cb)
 Perform an upload of a local file.
 
 `obj`: Object containing data for the upload:
@@ -121,13 +121,15 @@ Perform an upload of a local file.
   file:             // mandatory
   folder:
   filename:
-  contentType
+  contentType:
 }
 ```
 * `obj.file`: A buffer or the local path of your desired file.
 * `obj.folder`: The folder ID you want to upload to. *(not required)*
 * `obj.filename`: The file's name. *(only required if using a buffer)*
 * `obj.contentType`: The file's content type. *(only required if using a buffer)*
+
+`cb`: Callback function to display the upload progress in the form of [got's uploadProgress event](https://github.com/sindresorhus/got#onuploadprogress-progress). 
 
 #### getSplashImage(file)
 Get thumbnail of file
@@ -149,6 +151,7 @@ Please fork this repository, open a pull request and drop me a line on [twitter]
 ### Contributions to this project
 * **@Stradi** added `getSplashImage()`. This was released in **v2.1.0**.
 * **@SrPatinhas** suggested to update [got](https://github.com/sindresorhus/got) due to incompatibilities when using `node-openload` with Electron. This was released in **v2.1.1**.
+* **@berstend** suggested also setting a filename if uploading file path instead of buffer. This was released in **v2.2.0**
 
 ## Credits
 * **@sindresorhus** for [got](https://github.com/sindresorhus/got) and [hasha](https://github.com/sindresorhus/hasha)
@@ -165,10 +168,11 @@ If you feel there is something wrong with this repository or the source code it 
 MIT
 
 ## Milestones
-* Add missing API endpoints (*Convert a file, Show running converts, Show failed converts, Get splash image*)
+* Add missing API endpoints (*Convert a file, Show running converts, Show failed converts*)
 * Find a better way to handle captcha responses
 
 ## Version history
+* **2.2.0** - @berstend added a PR for setting a filename option for uploads, @SrPatinhas suggested adding [upload progress](#upload) status.
 * **2.1.1** - Released a hotfix with updated dependencies due to incompatibilities when using `node-openload` with Electron. Credits: @SrPatinhas.
 * **2.1.0** - @Stradi added [getSplashImage()](https://openload.co/api#file-splash).
 * **2.0.0** - Refactored `v1.0.0`, now also supporting buffers as upload content type. Added `deleteFile()`. Dropped [request](https://www.npmjs.com/package/request) in favor of [got](https://github.com/sindresorhus/got). Added tests using [mocha](http://mochajs.org/).

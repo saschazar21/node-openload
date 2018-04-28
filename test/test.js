@@ -8,6 +8,7 @@ const debug = require('debug')('node-openload-test');
 const got = require('got');
 const path = require('path');
 const { expect } = require('chai');
+require('chai').should();
 
 const ol = require('../index');
 
@@ -112,7 +113,7 @@ describe('node-openload', () => {
     this.timeout(5000);
     return openload.upload({
       file: './test/adler-2386314_960_720.jpg',
-    })
+    }, progress => debug(`Upload progress: ${(progress.percent * 100).toFixed(2)}%`))
     .then((res) => {
       debug(res);
       res.should.have.property('name');
@@ -141,7 +142,7 @@ describe('node-openload', () => {
       file: buffer,
       contentType: 'image/jpeg',
       filename: 'adler-2386314_960_720.jpg',
-    }))
+    }, progress => debug(`Upload progress: ${(progress.percent * 100).toFixed(2)}%`)))
     .then((res) => {
       debug(res);
       res.should.have.property('name');
