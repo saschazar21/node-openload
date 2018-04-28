@@ -172,7 +172,7 @@ MIT
 * Find a better way to handle captcha responses
 
 ## Version history
-* **2.2.0** - @berstend added a PR for setting a filename option for uploads, @SrPatinhas suggested adding [upload progress](#upload) status.
+* **2.2.0** - @berstend added a PR for setting a filename option for uploads, @SrPatinhas suggested adding [upload progress](#uploadobj-cb) status.
 * **2.1.1** - Released a hotfix with updated dependencies due to incompatibilities when using `node-openload` with Electron. Credits: @SrPatinhas.
 * **2.1.0** - @Stradi added [getSplashImage()](https://openload.co/api#file-splash).
 * **2.0.0** - Refactored `v1.0.0`, now also supporting buffers as upload content type. Added `deleteFile()`. Dropped [request](https://www.npmjs.com/package/request) in favor of [got](https://github.com/sindresorhus/got). Added tests using [mocha](http://mochajs.org/).
