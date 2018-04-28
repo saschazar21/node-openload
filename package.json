@@ -1,6 +1,6 @@
 {
   "name": "node-openload",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "An openload.co API handler",
   "main": "index.js",
   "scripts": {
